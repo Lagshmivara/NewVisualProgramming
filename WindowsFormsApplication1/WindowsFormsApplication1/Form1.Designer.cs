@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.SearchResult = new System.Windows.Forms.ListBox();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -40,15 +40,6 @@
             this.textBox1.Size = new System.Drawing.Size(191, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Input smth to search";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // SearchResult
-            // 
-            this.SearchResult.FormattingEnabled = true;
-            this.SearchResult.Location = new System.Drawing.Point(12, 52);
-            this.SearchResult.Name = "SearchResult";
-            this.SearchResult.Size = new System.Drawing.Size(272, 173);
-            this.SearchResult.TabIndex = 1;
             // 
             // buttonSearch
             // 
@@ -61,13 +52,22 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Location = new System.Drawing.Point(12, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(272, 183);
+            this.label1.TabIndex = 3;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 302);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.SearchResult);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -79,8 +79,8 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox SearchResult;
         private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Label label1;
     }
 }
 

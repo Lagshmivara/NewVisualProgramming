@@ -20,11 +20,22 @@ namespace WindowsFormsApplication1
         private void buttonSearch_Click(object sender, EventArgs e)
         {
 
+            string str = textBox1.Text;
+            Student stdnt1 = new Student("Lena", "Shynkarenko", "19.03.98");
+            Student stdnt2 = new Student("Yaroslav", "Nosov", "05.07.92");
+            Student stdnt3 = new Student("Marina", "Ilinskaya", "20.11.89");
+            Student stdnt4 = new Student("Mariya", "Ulitina", "13.02.95");
+            Student stdnt5 = new Student("Anatoliy", "Kulakov", "25.12.94");
+            Student stdnt6 = new Student("Roman", "Sidorov", "15.06.99");
+            Student stdnt7 = new Student("Denis", "Shynkarenko", "02.09.84");
+
+            label1.Text = stdnt1.Method(stdnt1, str);
+
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 
@@ -39,9 +50,21 @@ namespace WindowsFormsApplication1
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public string Birthday { get; private set; }
+
+        public string Method(Student ob, string str)
+        {
+            if(ob.Name.Contains(str)|| ob.Surname.Contains(str)|| ob.Birthday.Contains(str))
+            {
+                return ob.Name + "\n" + ob.Surname + "\n" + ob.Birthday;
+            }
+            else
+            {
+                return "Not found";
+            }
+        }
     }
 
-    class StudentsArray
+    /*class StudentsArray
     {
         object[] a;
 
@@ -64,21 +87,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-    }
-
-    class CreateStudent
-    {
-        public void Main()
-        {
-            StudentsArray stdnt = new StudentsArray(7);
-            stdnt[1] = new Student("Lena", "Shynkarenko", "19.03.98");
-            stdnt[2] = new Student("Yaroslav", "Nosov", "05.07.92");
-            stdnt[3] = new Student("Marina", "Ilinskaya", "20.11.89");
-            stdnt[4] = new Student("Mariya", "Ulitina", "13.02.95");
-            stdnt[5] = new Student("Anatoliy", "Kulakov", "25.12.94");
-            stdnt[6] = new Student("Roman", "Sidorov", "15.06.99");
-            stdnt[7] = new Student("Denis", "Shynkarenko", "02.09.84");
-        }
-    }
+    }*/
 }
  
