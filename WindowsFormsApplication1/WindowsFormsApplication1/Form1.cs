@@ -12,81 +12,104 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        StudentLibrary student = new StudentLibrary();
         public Form1()
         {
             InitializeComponent();
         }
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            student.Add(textBoxName.Text, textBoxSurname.Text, textBoxBirthdey.Text);
+            textBoxName.Clear();
+            textBoxSurname.Clear();
+            textBoxBirthdey.Clear();
+            textBox1.Clear();
+        }
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-
             string str = textBox1.Text;
-            Student stdnt1 = new Student("Lena", "Shynkarenko", "19.03.98");
-            Student stdnt2 = new Student("Yaroslav", "Nosov", "05.07.92");
-            Student stdnt3 = new Student("Marina", "Ilinskaya", "20.11.89");
-            Student stdnt4 = new Student("Mariya", "Ulitina", "13.02.95");
-            Student stdnt5 = new Student("Anatoliy", "Kulakov", "25.12.94");
-            Student stdnt6 = new Student("Roman", "Sidorov", "15.06.99");
-            Student stdnt7 = new Student("Denis", "Shynkarenko", "02.09.84");
-
-            label1.Text = stdnt1.Method(stdnt1, str);
-
+            label1.Text = student.HaveSuchFild(str);
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowList_Click(object sender, EventArgs e)
+        {
+            label1.Text = student.ShowStudents();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int i = (int)numericUpDown1.Value;
+            label1.Text = student.ShowOne(i);
+        }
+    }
+
+    class StudentLibrary
+    {
+        List<Student> listOfStudents = new List<Student>();
+
+      
+        public void Add(string n, string l, string b)
+        {
+            Student someSudent = new Student(n, l, b);
+            listOfStudents.Add(someSudent);
+        }
+        public string HaveSuchFild(string str)
+        {
+                for (int i = 0; i < listOfStudents.Count; i++)
+                {
+                    if (listOfStudents[i].Name == str || listOfStudents[i].LastName == str || listOfStudents[i].Birthday == str)
+                    {
+                        return listOfStudents[i].Name+" "+listOfStudents[i].LastName + " " + listOfStudents[i].Birthday;
+                    }
+                }
+                return "";
+            }
+        public string ShowStudents()
+        {
+            string s = null;
+            for (int i = 0; i < listOfStudents.Count; i++)
+            {
+                s += listOfStudents[i].Name + " " + listOfStudents[i].LastName + " " + listOfStudents[i].Birthday +"\n";
+            }
+            return s;
+        }
+        public string ShowOne(int i)
+        {
+            return listOfStudents[i].Name + " " + listOfStudents[i].LastName + " " + listOfStudents[i].Birthday;
+        }
+    }
+        
     }
 
     class Student
     {
-        public Student(string n, string s, string b)
+        public string Name { get; set;}
+        public string LastName { get; set; }
+        public string Birthday { get; set; }
+    
+        public Student(string n, string l, string b)
         {
             Name = n;
-            Surname = s;
+            LastName = l;
             Birthday = b;
-        }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-        public string Birthday { get; private set; }
-
-        public string Method(Student ob, string str)
-        {
-            if(ob.Name.Contains(str)|| ob.Surname.Contains(str)|| ob.Birthday.Contains(str))
-            {
-                return ob.Name + "\n" + ob.Surname + "\n" + ob.Birthday;
-            }
-            else
-            {
-                return "Not found";
-            }
         }
     }
 
-    /*class StudentsArray
-    {
-        object[] a;
+    
 
-        public StudentsArray(int size)
-        {
-            a = new object[size];
-            Length = size;
-        }   
-        public int Length { get; set; }
-       
-        public object this[int index]
-        {
-            get
-            {
-                return a[index];
-            }
-            set
-            {
-                a[index] = value;
-            }
-        }
-
-    }*/
-}
  
