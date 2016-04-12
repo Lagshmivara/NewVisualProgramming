@@ -90,7 +90,15 @@ namespace WindowsFormsApplication1
         }
         public string ShowOne(int i)
         {
-            return listOfStudents[i].Name + " " + listOfStudents[i].LastName + " " + listOfStudents[i].Birthday;
+            try
+            {
+                return listOfStudents[i].Name + " " + listOfStudents[i].LastName + " " + listOfStudents[i].Birthday;
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                return "ArgumentOutOfRange";
+            }
+            
         }
     }
         
