@@ -56,6 +56,13 @@ namespace WindowsFormsApplication1
             int i = (int)numericUpDown1.Value;
             label1.Text = student.ShowOne(i);
         }
+
+        private void Remove_Click(object sender, EventArgs e)
+        {
+            string str = textBox1.Text;
+            student.Remove(str);
+            //textBox1.Clear();
+        }
     }
 
     class StudentLibrary
@@ -96,9 +103,19 @@ namespace WindowsFormsApplication1
             }
             catch(ArgumentOutOfRangeException)
             {
-                return "ArgumentOutOfRange";
+                return "There is no student with such number)";
             }
             
+        }
+        public void Remove(string str)
+        {
+            for(int i=0; i<listOfStudents.Count; i++)
+            {
+                if (listOfStudents[i].Name == str || listOfStudents[i].LastName == str || listOfStudents[i].Birthday == str)
+                {
+                    listOfStudents.RemoveAt(i);
+                }
+            }         
         }
     }
         

@@ -43,6 +43,7 @@
             this.ShowList = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
+            this.Remove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,7 +150,7 @@
             // 
             // ShowList
             // 
-            this.ShowList.Location = new System.Drawing.Point(514, 180);
+            this.ShowList.Location = new System.Drawing.Point(514, 215);
             this.ShowList.Name = "ShowList";
             this.ShowList.Size = new System.Drawing.Size(75, 23);
             this.ShowList.TabIndex = 13;
@@ -159,14 +160,14 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(532, 128);
+            this.numericUpDown1.Location = new System.Drawing.Point(531, 171);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(40, 20);
             this.numericUpDown1.TabIndex = 16;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(514, 80);
+            this.button2.Location = new System.Drawing.Point(514, 128);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 37);
             this.button2.TabIndex = 17;
@@ -174,11 +175,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // Remove
+            // 
+            this.Remove.Location = new System.Drawing.Point(514, 17);
+            this.Remove.Name = "Remove";
+            this.Remove.Size = new System.Drawing.Size(75, 43);
+            this.Remove.TabIndex = 18;
+            this.Remove.Text = "Remove student";
+            this.Remove.UseVisualStyleBackColor = true;
+            this.Remove.Click += new System.EventHandler(this.Remove_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 259);
+            this.Controls.Add(this.Remove);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.ShowList);
@@ -220,6 +232,7 @@
         private System.Windows.Forms.Button ShowList;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Remove;
     }
 }
 
